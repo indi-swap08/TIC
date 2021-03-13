@@ -1,0 +1,55 @@
+<!-- galleryView Grid-->
+  <div class="container" id="galleryView">
+      <div class="text-center">
+          <h2 class="section-heading text-uppercase headingColor">Featured Works</h2>
+          <br/>
+      </div>
+      <div class="row">
+          <div class="col-lg-4 col-sm-6 mb-4"  *ngFor="let item of galleryVal">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src={{item.galleryUrl}} alt="" />
+              </div>
+          </div>
+
+          <!-- <div class="col-lg-4 col-sm-6 mb-4">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/gallery/01-thumbnail.jpg" alt="" />
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/gallery/02-thumbnail.jpg" alt="" />
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/gallery/03-thumbnail.jpg" alt="" />
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/gallery/04-thumbnail.jpg" alt="" />
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/gallery/05-thumbnail.jpg" alt="" />
+              </div>
+          </div>
+          <div class="col-lg-4 col-sm-6">
+              <div class="galleryView-item">
+                  <img class="img-fluid" src="assets/img/galleryView/06-thumbnail.jpg" alt="" />
+              </div>
+          </div> -->
+      </div>
+  </div>
+  <!-- <div style="text-align:center">
+    <h2>
+        Country list from local json file...
+    </h2>
+    <ul *ngFor="let item of galleryVal">
+       <li>
+          <h3>Country Name :{{item.name}}, Code: {{item.code}}</h3>
+       </li>
+    </ul>
+</div> -->

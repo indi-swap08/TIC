@@ -1,0 +1,86 @@
+.defaultBgColor{
+  background-color: #ef970d;
+}
+.defaultFontColor{
+  color: #ef970d;
+}
+/* ---------------------------------------- */
+.headingColor{
+  color: #fed136;
+}
+.text-muted {
+  color: #6c757d !important;
+}
+#galleryView {
+  padding: 5rem 0;
+}
+#galleryView h2.section-heading {
+  font-size: 2rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+#galleryView h3.section-subheading {
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: italic;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  margin-bottom: 4rem;
+}
+/* ---------------------------------- */
+
+.viewMore{
+  color: #ef970d;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.viewMore:hover{
+  text-decoration: underline;
+}
+.icongalleryView{
+  position: inherit;
+  text-align: right;
+}
+#galleryView .galleryView-item {
+  max-width: 25rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+#galleryView .galleryView-item .galleryView-link {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+}
+#galleryView .galleryView-item .galleryView-link .galleryView-hover {
+  display: flex;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #ef970dd9;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity ease-in-out 0.25s;
+}
+#galleryView .galleryView-item .galleryView-link .galleryView-hover .galleryView-hover-content {
+  font-size: 1.25rem;
+  color: white;
+}
+#galleryView .galleryView-item .galleryView-link:hover .galleryView-hover {
+  opacity: 1;
+}
+#galleryView .galleryView-item .galleryView-caption {
+  padding: 1.5rem;
+  text-align: center;
+  background-color: #fff;
+}
+#galleryView .galleryView-item .galleryView-caption .galleryView-caption-heading {
+  font-size: 1.5rem;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  margin-bottom: 0;
+}
+#galleryView .galleryView-item .galleryView-caption .galleryView-caption-subheading {
+  font-style: italic;
+  font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
