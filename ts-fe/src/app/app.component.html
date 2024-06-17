@@ -1,0 +1,81 @@
+<mat-drawer-container hasBackdrop="false">
+  <mat-drawer #drawer mode="side" opened>
+    <mat-nav-list>
+       <span  routerLink="/dashboard">
+          <img class="logo" src="../assets/TLogo.png"/>
+          <span class="logoTitle">TICKETING</span>
+      </span>
+      <a class="nav-link" mat-list-item  routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">
+        <div  class="side-module-link">
+          <mat-icon>dashboard</mat-icon>
+          <span class="menu-link">
+            Dashboard
+          </span>
+        </div>
+      </a>
+      <a class="nav-link" mat-list-item  routerLink="/ticketList">
+        <div  class="side-module-link">
+          <mat-icon>library_books</mat-icon>
+          <span class="menu-link">
+            Ticketing
+          </span>
+        </div>
+      </a>
+      <a mat-list-item>
+        <div  class="side-module-link">
+          <mat-icon>content_paste</mat-icon>
+          <span class="menu-link">
+            Table List
+          </span>
+        </div>
+      </a>
+      <a mat-list-item>
+        <div  class="side-module-link">
+          <mat-icon>location_on</mat-icon>
+          <span class="menu-link">
+            Maps
+          </span>
+        </div>
+      </a>
+      <a mat-list-item>
+        <div class="side-module-link">
+          <mat-icon>calendar_today</mat-icon>
+          <span class="menu-link">
+            Calendar
+          </span>
+        </div>
+      </a>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <div class="side-module-link">
+          <mat-icon>calendar_today</mat-icon>
+            <span class="menu-link">
+              Mobile Phone
+            </span>
+          </div>
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+          <a mat-list-item routerLink="#">
+            <div class="side-module-link">
+              <mat-icon>apple</mat-icon><span>iOS</span>
+            </div>
+          </a>
+          <a mat-list-item routerLink="#">
+            <div class="side-module-link">
+              <mat-icon>android</mat-icon><span>Android</span>
+            </div>
+          </a>
+        </mat-nav-list>
+      </mat-expansion-panel>
+    </mat-nav-list>
+  </mat-drawer>
+
+  <mat-drawer-content class="content-spacing">
+    <div class="sidebar-toggle-container">
+      <button mat-raised-button color="accent"  (click)="drawer.toggle()">
+        <mat-icon style="margin:0px;">menu</mat-icon>
+      </button>
+    </div>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

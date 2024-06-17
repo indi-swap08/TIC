@@ -1,0 +1,77 @@
+@use '@angular/material' as mat;
+@include mat.core();
+@import '../colors';
+
+$hover-menu: mat.get-color-from-palette($md-primary,400);
+
+.logo{
+   height: 7vh;
+   width: 23%;
+}
+
+.logoTitle{
+  color: #f7673b;
+  position: relative;
+  left: 10px;
+  bottom: 22px;
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 32px;
+  font-family: Roboto, sans-serif;
+  letter-spacing: 0.0125em;
+}
+
+mat-drawer-container {
+  height: 100vh;
+}
+
+mat-drawer{
+  width: 300px;
+  background: $custom-primary;
+  padding-top: 3px;
+  padding-left: 9px;
+}
+
+.side-module-link{
+  color: white;
+}
+.side-module-link:active {
+  color: white;
+}
+a:hover {
+  background: $hover-menu;
+}
+ .nav-link.active {
+  background: $custom-accent;
+  color: white;
+}
+
+mat-expansion-panel{
+ background: $custom-primary;
+}
+mat-expansion-panel-header{
+ padding-left: 16px;
+}
+mat-expansion-panel:hover {
+  background: $hover-menu;
+}
+::ng-deep .mat-expansion-panel-body {
+    padding: 0 0 9px 21px !important;
+}
+::ng-deep .mat-expansion-indicator::after {
+   color: white;
+}
+mat-drawer-content {
+  padding: 25px;
+}
+
+.sidebar-toggle-container {
+  position: relative;
+  bottom: 25px;
+  right: 28px;
+}
+.menu-link{
+  position: absolute;
+  margin-left: 11px;
+  margin-top: 3px;
+}
