@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { TicketListComponent } from './ticket-list/ticket-list.component';
 import { AppRoutes } from './app-routing.constants';
+import {CreateEditTicketComponent} from "./create-edit-ticket/create-edit-ticket.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: AppRoutes.ticketList,
     component: TicketListComponent
+  },
+  {
+    path: AppRoutes.createTicket,
+    component: CreateEditTicketComponent
   },
 ];
 

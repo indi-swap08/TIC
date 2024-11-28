@@ -1,20 +1,4 @@
-mat-sidenav-container {
-  height: 100vh;
-}
-.example-sidenav {
-  width: 300px;
-}
-mat-sidenav-content {
-  padding: 25px;
-}
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
+canvas {
+  width: 100% !important;
+  height: 250px !important;
 }
