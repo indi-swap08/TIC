@@ -1,16 +1,13 @@
 package com.solution.tsbe.dto;
 
-
-import lombok.Getter;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
+@Data
+@EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
-@ToString
-public class TicketDTO
+public class TicketDTO extends BaseDTO
 {
     private String subject;
 
