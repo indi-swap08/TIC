@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { TicketListComponent } from './ticket-list/ticket-list.component';
+import { OverviewComponent } from './ticket/overview/overview.component';
 import { AppRoutes } from './app-routing.constants';
 import {CreateEditTicketComponent} from "./create-edit-ticket/create-edit-ticket.component";
 
@@ -16,12 +16,8 @@ const routes: Routes = [
     component: DashboardComponent
   },
   {
-    path: AppRoutes.ticketList,
-    component: TicketListComponent
-  },
-  {
-    path: AppRoutes.createTicket,
-    component: CreateEditTicketComponent
+    path: AppRoutes.ticket,
+    loadChildren: () => import('./ticket/ticket.module').then((m) => m.TicketModule)
   },
 ];
 

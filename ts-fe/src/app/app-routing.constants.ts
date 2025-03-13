@@ -1,6 +1,6 @@
 export const AppRoutes = {
   root: '',
   dashboard: 'dashboard',
-  createTicket: 'createTicket',
+  ticket: 'ticket',
   ticketList: 'ticketList',
 };

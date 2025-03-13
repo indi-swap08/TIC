@@ -4,11 +4,11 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-ticket-list',
-  templateUrl: './ticket-list.component.html',
-  styleUrls: ['./ticket-list.component.scss']
+  selector: 'tic-overview',
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.scss']
 })
-export class TicketListComponent implements OnInit {
+export class OverviewComponent implements OnInit {
   displayedColumns: string[] = ['id', 'title', 'status', 'priority', 'actions'];
   tickets = new MatTableDataSource<any>([]);
 
@@ -43,4 +43,5 @@ export class TicketListComponent implements OnInit {
   editTicket(ticket: any) {
     this.router.navigate(['/tickets/edit', ticket.id]);
   }
+
 }
