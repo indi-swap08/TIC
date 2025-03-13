@@ -16,7 +16,6 @@ public class TicketController {
         this.ticketService = ticketService;
     }
 
-
     // Aggregate root
     // tag::get-aggregate-root[]
     @GetMapping("/tickets")

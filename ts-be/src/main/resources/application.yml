@@ -1,8 +1,8 @@
 server:
   address: localhost
-  port: 3005
+  port: 8008
   servlet:
-    context-path: /tsapi
+    context-path: /ticapi
 spring:
   h2:
     console:
@@ -16,6 +16,8 @@ spring:
     driverClassName: org.h2.Driver
     username: sa
     password: password
+  liquibase:
+    change-log: classpath:/db/master-changelog.xml
   jpa:
     database:
       platform: org.hibernate.dialect.H2Dialect
