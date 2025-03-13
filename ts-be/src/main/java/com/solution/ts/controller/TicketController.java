@@ -1,19 +1,18 @@
-package com.solution.tsbe.controller;
+package com.solution.ts.controller;
 
 
-import com.solution.tsbe.entity.Ticket;
-import com.solution.tsbe.service.TicketService;
+import com.solution.ts.entity.Ticket;
+import com.solution.ts.service.TicketService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/tsapi")
 public class TicketController {
     private final TicketService ticketService;
 
-
-    TicketController(TicketService ticketService) {
+    public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
 

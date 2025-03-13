@@ -1,6 +1,6 @@
-package com.solution.tsbe.service;
+package com.solution.ts.service;
 
-import com.solution.tsbe.entity.Ticket;
+import com.solution.ts.entity.Ticket;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 

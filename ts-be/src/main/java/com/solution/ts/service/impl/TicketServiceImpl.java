@@ -1,9 +1,9 @@
-package com.solution.tsbe.service.impl;
+package com.solution.ts.service.impl;
 
-import com.solution.tsbe.dto.TicketDTO;
-import com.solution.tsbe.entity.Ticket;
-import com.solution.tsbe.repository.TicketRepository;
-import com.solution.tsbe.service.TicketService;
+import com.solution.ts.dto.TicketDTO;
+import com.solution.ts.entity.Ticket;
+import com.solution.ts.repository.TicketRepository;
+import com.solution.ts.service.TicketService;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -45,7 +45,7 @@ public class TicketServiceImpl implements TicketService {
 //                    newEmployee.setId(id);
 //                    return repository.save(newEmployee);
 //                });
-    };
+    }
 
     @Override
     public void delete(Long id){

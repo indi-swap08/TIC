@@ -1,7 +1,6 @@
-package com.solution.tsbe.repository;
+package com.solution.ts.repository;
 
-
-import com.solution.tsbe.entity.Ticket;
+import com.solution.ts.entity.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

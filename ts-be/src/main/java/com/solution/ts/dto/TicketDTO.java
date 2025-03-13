@@ -1,4 +1,4 @@
-package com.solution.tsbe.dto;
+package com.solution.ts.dto;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;

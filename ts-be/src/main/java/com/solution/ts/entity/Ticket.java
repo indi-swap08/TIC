@@ -1,4 +1,4 @@
-package com.solution.tsbe.entity;
+package com.solution.ts.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
