@@ -2,6 +2,7 @@ import {BaseResponse} from "./base-response.model";
 import {TicketPriority, TicketStatus} from "./enum/Ticket.enum";
 
 export interface Ticket {
+    id: string;
     ticketNumber: string;
     title: string;
     subject: string;
