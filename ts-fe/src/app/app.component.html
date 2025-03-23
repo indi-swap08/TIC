@@ -2,7 +2,7 @@
   <mat-drawer #drawer mode="side" opened>
     <mat-nav-list>
        <span  routerLink="/dashboard">
-          <img class="logo" src="../assets/TLogo.png"/>
+          <img class="logo" src="../assets/TLogo.png" alt=""/>
           <span class="logoTitle">TICKETING</span>
       </span>
       <a class="nav-link" mat-list-item  routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">
@@ -48,7 +48,7 @@
       <mat-expansion-panel>
         <mat-expansion-panel-header>
           <div class="side-module-link">
-          <mat-icon>calendar_today</mat-icon>
+            <mat-icon>calendar_today</mat-icon>
             <span class="menu-link">
               Mobile Phone
             </span>
@@ -73,9 +73,11 @@
   <mat-drawer-content class="content-spacing">
     <div class="sidebar-toggle-container">
       <button mat-raised-button color="accent"  (click)="drawer.toggle()">
-        <mat-icon style="margin:0px;">menu</mat-icon>
+        <mat-icon>menu</mat-icon>
       </button>
     </div>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>
+
+<!--<h1>TESTING</h1>-->

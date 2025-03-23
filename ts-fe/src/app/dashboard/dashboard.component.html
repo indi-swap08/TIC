@@ -1,13 +1,32 @@
-// ... existing code ...
-<div class="card-header card-header-success">
-  <canvas id="dailySalesChart"></canvas>
+<div class="dashboard-container">
+  <div class="chart-row">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Monthly Sales</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas id="salesChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Revenue Distribution</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas id="revenueChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="chart-row">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>User Activity</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <canvas id="userChart"></canvas>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
-// ... existing code ...
-<div class="card-header card-header-warning">
-  <canvas id="websiteViewsChart"></canvas>
-</div>
-// ... existing code ...
-<div class="card-header card-header-danger">
-  <canvas id="completedTasksChart"></canvas>
-</div>
-// ... existing code ...

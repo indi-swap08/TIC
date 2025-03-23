@@ -1,82 +1,115 @@
-import { Component, OnInit } from '@angular/core';
-import Chart from 'chart.js/auto';
+import { Component, OnInit, AfterViewInit, PLATFORM_ID, Inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
-  ngOnInit() {
-    this.createDailySalesChart();
-    this.createSubscriptionsChart();
-    this.createTasksChart();
+export class DashboardComponent implements OnInit, AfterViewInit {
+  private Chart: any;
+
+  ngOnInit() {}
+
+  async ngAfterViewInit() {
+    const { Chart, registerables } = await import('chart.js');
+    Chart.register(...registerables);
+    this.Chart = Chart;
+
+    setTimeout(() => {
+      this.createSalesChart();
+      this.createRevenueChart();
+      this.createUserChart();
+    });
   }
 
-  createDailySalesChart() {
-    const ctx = document.getElementById('dailySalesChart') as HTMLCanvasElement;
-    new Chart(ctx, {
+  createSalesChart() {
+    const data = {
+      labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+      datasets: [{
+        label: 'Monthly Sales',
+        data: [12000, 19000, 15000, 25000, 22000, 30000],
+        borderColor: '#4CAF50',
+        backgroundColor: 'rgba(76, 175, 80, 0.1)',
+        fill: true,
+        tension: 0.4
+      }]
+    };
+
+    new this.Chart('salesChart', {
       type: 'line',
-      data: {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-        datasets: [{
-          label: 'Sales',
-          data: [12, 19, 3, 5, 2, 3, 15],
-          borderColor: '#4caf50',
-          tension: 0.4,
-          fill: true,
-          backgroundColor: 'rgba(76, 175, 80, 0.1)'
-        }]
-      },
+      data: data,
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: false }
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
     });
   }
 
-  createSubscriptionsChart() {
-    const ctx = document.getElementById('websiteViewsChart') as HTMLCanvasElement;
-    new Chart(ctx, {
+  createRevenueChart() {
+    const data = {
+      labels: ['Products', 'Services', 'Subscriptions', 'Other'],
+      datasets: [{
+        data: [30, 25, 35, 10],
+        backgroundColor: [
+          '#4CAF50',  // green
+          '#2196F3',  // blue
+          '#FFC107',  // amber
+          '#9C27B0'   // purple
+        ]
+      }]
+    };
+
+    new this.Chart('revenueChart', {
+      type: 'pie',
+      data: data,
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: {
+            position: 'right'
+          }
+        }
+      }
+    });
+  }
+
+  createUserChart() {
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Active Users',
+        data: [120, 150, 180, 160, 200, 180, 190],
+        backgroundColor: '#2196F3'
+      }]
+    };
+
+    new this.Chart('userChart', {
       type: 'bar',
-      data: {
-        labels: ['J', 'F', 'M', 'A', 'M', 'J'],
-        datasets: [{
-          label: 'Subscriptions',
-          data: [542, 443, 320, 780, 553, 453],
-          backgroundColor: '#ff9800'
-        }]
-      },
+      data: data,
       options: {
         responsive: true,
+        maintainAspectRatio: false,
         plugins: {
-          legend: { display: false }
-        }
-      }
-    });
-  }
-
-  createTasksChart() {
-    const ctx = document.getElementById('completedTasksChart') as HTMLCanvasElement;
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['M', 'T', 'W', 'T', 'F', 'S', 'S'],
-        datasets: [{
-          label: 'Tasks',
-          data: [50, 40, 300, 220, 500, 250, 400],
-          borderColor: '#f44336',
-          tension: 0.4,
-          fill: true,
-          backgroundColor: 'rgba(244, 67, 54, 0.1)'
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: { display: false }
+          legend: {
+            display: false
+          }
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
     });

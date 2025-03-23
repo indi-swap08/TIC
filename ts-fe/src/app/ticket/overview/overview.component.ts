@@ -4,7 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'tic-overview',
+  selector: 'ticket-overview',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss']
 })
