@@ -24,7 +24,7 @@ TIC is a comprehensive ticketing solution application designed to streamline tic
 - Frontend: Angular 11
 - Backend: Java Spring Boot
 - Database: H2 Database
-- Authentication: Not Updated Yet
+- Authentication: Not Updated Yet (Possibility of adding Keycloak)
 
 NOTE: Still at the initial stage, not fully functional yet.
 
