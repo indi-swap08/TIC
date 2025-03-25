@@ -7,6 +7,8 @@ mat-nav-list {
   width: 100%;
   max-width: 50%;
   margin-bottom: 10px;
+  position: relative;
+  left: 21%;
 }
 
 .logoTitle {
@@ -38,6 +40,7 @@ mat-nav-list {
 .side-module-link {
   display: flex;
   align-items: center;
+  color: white;
 }
 
 .menu-link {
@@ -58,4 +61,5 @@ mat-nav-list {
 .tic-side-nav{
   padding: 10px;
 }
+
 
