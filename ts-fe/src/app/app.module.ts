@@ -7,18 +7,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import {TicketModule} from "./ticket/ticket.module";
 import {AngularMaterialModule} from './angular-material.module';
+import {DragComponent} from './drag/drag.component';
+import {CdkDrag, CdkDropList, CdkDropListGroup} from '@angular/cdk/drag-drop';
+import {TreeComponent} from './tree/tree.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
+    DragComponent,
+    TreeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     TicketModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    CdkDropListGroup,
+    CdkDrag,
+    CdkDropList
   ],
   providers: [
     provideClientHydration()

@@ -1,4 +1,4 @@
-<mat-drawer-container hasBackdrop="false">
+<mat-drawer-container class="mat-drawer-sidenav" hasBackdrop="false">
   <mat-drawer #drawer mode="side" opened>
 
   <span routerLink="/dashboard">
@@ -17,6 +17,24 @@
           <div class="side-module-link">
             <mat-icon>library_books</mat-icon>
             <span class="menu-link">Ticketing</span>
+          </div>
+        </a>
+        <a class="nav-link" mat-list-item routerLink="/drag" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="side-module-link">
+            <mat-icon>dashboard</mat-icon>
+            <span class="menu-link">Drag</span>
+          </div>
+        </a>
+        <a class="nav-link" mat-list-item routerLink="/tree" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="side-module-link">
+            <mat-icon>dashboard</mat-icon>
+            <span class="menu-link">Tree</span>
+          </div>
+        </a>
+        <a class="nav-link" mat-list-item routerLink="/test" routerLinkActive="active" ariaCurrentWhenActive="page">
+          <div class="side-module-link">
+            <mat-icon>dashboard</mat-icon>
+            <span class="menu-link">Testing</span>
           </div>
         </a>
         <a mat-list-item>

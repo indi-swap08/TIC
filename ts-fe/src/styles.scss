@@ -1,15 +1,16 @@
 @use "@angular/material" as mat;
 @use "./theme/_styles-theme" as m3;
 @use "./theme/tic-theme" as custom;
+@use "./theme/m3-theme" as tic;
 
 @include mat.core();
 
 html {
 
   // Apply the light theme by default
-  @include mat.all-component-themes(m3.$tic-light-theme);
-  @include mat.core-theme(m3.$tic-light-theme);
-  @include mat.button-theme(m3.$tic-light-theme);
+  @include mat.all-component-themes(tic.$light-theme);
+  @include mat.core-theme(tic.$light-theme);
+  @include mat.button-theme(tic.$light-theme);
 
   //@include mat.core-theme(m3.$tic-light-theme);
   //@include mat.button-theme(m3.$tic-light-theme);
@@ -33,4 +34,8 @@ body {
 
 .mat-drawer-inner-container{
   background-color: #213342;
+}
+
+.mat-mdc-card, .mat-mdc-table{
+  background-color: white;
 }
