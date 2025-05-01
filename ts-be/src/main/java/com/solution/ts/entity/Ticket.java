@@ -2,12 +2,10 @@ package com.solution.ts.entity;
 
 import com.solution.ts.constants.ColumnConstants;
 import com.solution.ts.constants.enums.TicketPriority;
-import com.solution.ts.constants.enums.TicketState;
+import com.solution.ts.constants.enums.TicketStatus;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import org.antlr.v4.runtime.misc.NotNull;
-import org.springframework.data.annotation.CreatedDate;
 
 import java.time.Instant;
 
@@ -30,7 +28,7 @@ public class Ticket extends BaseObject {
 
     @Enumerated(EnumType.STRING)
     @Column(name = ColumnConstants.COLUMN_TICKET_STATUS, nullable = false)
-    private TicketState status;
+    private TicketStatus status;
 
     @Enumerated(EnumType.STRING)
     @Column(name = ColumnConstants.COLUMN_TICKET_PRIORITY, nullable = false)

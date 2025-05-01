@@ -3,7 +3,7 @@ package com.solution.ts.constants.enums;
 import lombok.Getter;
 
 @Getter
-public enum TicketState {
+public enum TicketStatus {
     PENDING,
     OPEN,
     IN_PROGRESS,

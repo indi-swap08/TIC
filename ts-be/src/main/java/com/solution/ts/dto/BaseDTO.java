@@ -1,6 +1,8 @@
 package com.solution.ts.dto;
 
 import java.sql.Timestamp;
+import java.util.Date;
+
 import lombok.Data;
 
 @Data
@@ -12,4 +14,7 @@ public class BaseDTO {
     boolean modified;
     String lastModifiedBy;
     Timestamp modifiedAt;
+    Date deletedDate;
+    String deletedBy;
+    boolean deleted;
 }

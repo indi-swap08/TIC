@@ -7,8 +7,8 @@
 
   <!-- "TIC" Text -->
   <text x="140" y="90" font-family="Poppins, sans-serif" font-size="64" fill="#333" font-weight="bold">
-    <tspan fill="#014551">T</tspan>
-    <tspan fill="#014551">I</tspan>
-    <tspan fill="#014551">C</tspan>
+    <tspan fill="orange">T</tspan>
+    <tspan fill="orangered">I</tspan>
+    <tspan fill="red">C</tspan>
   </text>
 </svg>

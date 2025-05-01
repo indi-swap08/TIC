@@ -8,7 +8,7 @@ mat-nav-list {
 
 .logo {
   width: 100%;
-  max-width: 50%;
+  max-width: 70%;
   margin-bottom: 10px;
   position: relative;
   left: 21%;
@@ -30,6 +30,7 @@ mat-nav-list {
   color: #ecf0f1;
   border-radius: 4px;
   transition: background-color 0.3s;
+  margin-bottom: 21px;
 }
 
 .nav-link:hover {
@@ -43,7 +44,7 @@ mat-nav-list {
 .side-module-link {
   display: flex;
   align-items: center;
-  color: white;
+  color: #014551;
 }
 
 .menu-link {
@@ -62,7 +63,7 @@ mat-nav-list {
 }
 
 .tic-side-nav{
-  padding: 10px;
+  padding: 17px;
 }
 
 
