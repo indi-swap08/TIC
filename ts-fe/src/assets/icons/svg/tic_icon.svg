@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 150">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 150" width="64" height="64">
   <!-- Background tickets -->
   <path d="M40,40 h60 a5,5 0 0 1 5,5 v60 a5,5 0 0 1 -5,5 h-60 a5,5 0 0 1 -5,-5 v-60 a5,5 0 0 1 5,-5 z" fill="#00C49F" transform="rotate(-10,70,70)"/>
   <path d="M50,35 h60 a5,5 0 0 1 5,5 v60 a5,5 0 0 1 -5,5 h-60 a5,5 0 0 1 -5,-5 v-60 a5,5 0 0 1 5,-5 z" fill="#FFBB28" transform="rotate(-5,80,65)"/>

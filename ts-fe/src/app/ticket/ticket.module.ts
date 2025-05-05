@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { OverviewComponent } from './overview/overview.component';
 import {TicketRoutingModule} from "./ticket.routing.module";
-import {MatCard, MatCardContent, MatCardHeader, MatCardModule} from '@angular/material/card';
+import {MatCard, MatCardHeader, MatCardModule} from '@angular/material/card';
 import {
   MatCell, MatCellDef,
   MatColumnDef,
