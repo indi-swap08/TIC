@@ -1,0 +1,189 @@
+<div class="detail-wrapper" *ngIf="ticket; else loading">
+    <!-- Header -->
+    <div class="page-header">
+        <div class="header-left">
+            <button mat-icon-button routerLink="/ticket/overview" class="back-btn">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <div class="header-text">
+                <div class="ticket-meta">
+                    <span class="ticket-id">{{ticket.number}}</span>
+                    <span class="separator">•</span>
+                    <span class="created-at">Created {{ticket.createdAt | date:'mediumDate'}}</span>
+                </div>
+                <h1 class="ticket-title">{{ticket.title}}</h1>
+            </div>
+        </div>
+        <div class="header-actions">
+            <button mat-stroked-button color="warn">
+                <mat-icon>block</mat-icon>
+                Spam
+            </button>
+            <button mat-flat-button color="primary">
+                <mat-icon>check</mat-icon>
+                Resolve Ticket
+            </button>
+        </div>
+    </div>
+
+    <div class="detail-grid">
+        <!-- Main Content: Conversation -->
+        <div class="main-column">
+            <mat-card class="conversation-card">
+                <mat-card-header>
+                    <mat-card-title>Conversation</mat-card-title>
+                    <div class="header-tools">
+                        <button mat-button [color]="isInternal ? 'warn' : 'primary'" (click)="isInternal = !isInternal">
+                            <mat-icon>{{isInternal ? 'lock' : 'public'}}</mat-icon>
+                            {{isInternal ? 'Internal Note' : 'Public Reply'}}
+                        </button>
+                    </div>
+                </mat-card-header>
+
+                <mat-card-content class="conversation-body">
+                    <div class="comment-item" *ngFor="let comment of ticket.comments"
+                        [class.internal]="comment.isInternal">
+                        <div class="comment-header">
+                            <div class="user-info">
+                                <div class="mini-avatar">{{comment.user.firstName[0]}}</div>
+                                <span class="user-name">{{comment.user.firstName}} {{comment.user.lastName}}</span>
+                                <span class="internal-badge" *ngIf="comment.isInternal">INTERNAL</span>
+                            </div>
+                            <span class="comment-date">{{comment.createdAt | date:'short'}}</span>
+                        </div>
+                        <div class="comment-content">
+                            {{comment.content}}
+                        </div>
+                    </div>
+
+                    <div class="empty-conversation" *ngIf="!ticket.comments?.length">
+                        <mat-icon>forum</mat-icon>
+                        <p>No messages yet. Start the conversation.</p>
+                    </div>
+                </mat-card-content>
+
+                <div class="comment-editor">
+                    <mat-form-field appearance="outline" class="full-width">
+                        <mat-label>{{isInternal ? 'Write an internal note...' : 'Reply to customer...'}}</mat-label>
+                        <textarea matInput rows="4" [(ngModel)]="newComment"></textarea>
+                    </mat-form-field>
+                    <div class="editor-actions">
+                        <button mat-icon-button matTooltip="Attach files">
+                            <mat-icon>attach_file</mat-icon>
+                        </button>
+                        <div class="spacer"></div>
+                        <button mat-flat-button color="primary" (click)="addComment()" [disabled]="!newComment.trim()">
+                            Send Message
+                        </button>
+                    </div>
+                </div>
+            </mat-card>
+
+            <!-- Activity Timeline -->
+            <mat-card class="timeline-card">
+                <mat-card-header>
+                    <mat-card-title>Activity History</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon">
+                                <mat-icon>add_circle</mat-icon>
+                            </div>
+                            <div class="timeline-content">
+                                <p class="activity-text"><strong>{{ticket.user.firstName}}</strong> created the ticket
+                                </p>
+                                <span class="activity-time">{{ticket.createdAt | date:'medium'}}</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item" *ngIf="ticket.assignee">
+                            <div class="timeline-icon">
+                                <mat-icon>person</mat-icon>
+                            </div>
+                            <div class="timeline-content">
+                                <p class="activity-text">Ticket assigned to
+                                    <strong>{{ticket.assignee.firstName}}</strong></p>
+                                <span class="activity-time">{{ticket.createdAt | date:'medium'}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <!-- Sidebar: Attributes -->
+        <div class="sidebar-column">
+            <!-- SLA Card -->
+            <mat-card class="sla-card" [class.breached]="slaCountdown === 'BREACHED'">
+                <mat-card-content>
+                    <div class="sla-header">
+                        <mat-icon>alarm</mat-icon>
+                        <span>SLA REMAINING</span>
+                    </div>
+                    <div class="sla-timer">{{slaCountdown}}</div>
+                    <p class="sla-due-text">Due: {{ticket.slaDue | date:'short'}}</p>
+                </mat-card-content>
+            </mat-card>
+
+            <!-- Properties Card -->
+            <mat-card class="properties-card">
+                <mat-card-header>
+                    <mat-card-title>Properties</mat-card-title>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="prop-item">
+                        <label>Status</label>
+                        <div class="status-indicator" [class]="getStatusClass(ticket.status)">
+                            {{ticket.status}}
+                        </div>
+                    </div>
+                    <div class="prop-item">
+                        <label>Priority</label>
+                        <span class="priority-badge" [class]="getPriorityClass(ticket.priority)">
+                            {{ticket.priority}}
+                        </span>
+                    </div>
+                    <div class="prop-item">
+                        <label>Assignee</label>
+                        <div class="assignee-box" *ngIf="ticket.assignee; else unassigned">
+                            <div class="mini-avatar">{{ticket.assignee.firstName[0]}}</div>
+                            <span>{{ticket.assignee.firstName}} {{ticket.assignee.lastName}}</span>
+                        </div>
+                        <ng-template #unassigned>
+                            <button mat-stroked-button class="assign-btn">Assign to me</button>
+                        </ng-template>
+                    </div>
+                    <div class="prop-item">
+                        <label>Requester</label>
+                        <div class="user-box">
+                            <div class="mini-avatar">{{ticket.user.firstName[0]}}</div>
+                            <div class="user-details">
+                                <span class="name">{{ticket.user.firstName}} {{ticket.user.lastName}}</span>
+                                <span class="email">{{ticket.user.email}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="prop-item">
+                        <label>Category</label>
+                        <span class="category-tag">{{ticket.category}}</span>
+                    </div>
+                    <div class="prop-item">
+                        <label>Tags</label>
+                        <div class="tags-list">
+                            <mat-chip-set>
+                                <mat-chip *ngFor="let tag of ticket.tags">{{tag}}</mat-chip>
+                            </mat-chip-set>
+                        </div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+<ng-template #loading>
+    <div class="loading-state">
+        <mat-spinner diameter="40"></mat-spinner>
+        <p>Loading ticket details...</p>
+    </div>
+</ng-template>

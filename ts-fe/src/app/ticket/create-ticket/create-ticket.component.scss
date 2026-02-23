@@ -1,0 +1,173 @@
+.modal-container {
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.modal-header {
+    padding: 16px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+
+    h2 {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--text-main);
+    }
+
+    .close-btn {
+        color: var(--text-muted);
+    }
+}
+
+.modal-content {
+    padding: 24px;
+    overflow-y: auto;
+}
+
+.ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 600px) {
+        flex-direction: column;
+    }
+}
+
+.full-width {
+    width: 100%;
+}
+
+.half-width {
+    flex: 1;
+}
+
+.priority-trigger,
+.priority-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    mat-icon {
+        font-size: 18px;
+        width: 18px;
+        height: 18px;
+
+        &.low {
+            color: #10b981;
+        }
+
+        &.medium {
+            color: #f59e0b;
+        }
+
+        &.high {
+            color: #f97316;
+        }
+
+        &.urgent {
+            color: #ef4444;
+        }
+    }
+}
+
+.editor-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.025em;
+}
+
+.NgxEditor__Wrapper {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--bg-card);
+
+    .NgxEditor__MenuBar {
+        border-bottom: 1px solid var(--border-color);
+        background-color: #f8fafc;
+    }
+
+    .NgxEditor {
+        min-height: 200px;
+        padding: 12px;
+    }
+
+    &:focus-within {
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
+    }
+}
+
+.attachments-section {
+    margin-top: 12px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+
+        .label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+    }
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 12px;
+    background-color: #f1f5f9;
+    border-radius: 8px;
+
+    mat-icon {
+        font-size: 20px;
+        width: 20px;
+        height: 20px;
+        color: var(--text-muted);
+    }
+
+    .file-name {
+        font-size: 13px;
+        font-weight: 500;
+        flex: 1;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .file-size {
+        font-size: 11px;
+        color: var(--text-muted);
+    }
+}
+
+.modal-actions {
+    padding: 16px 24px;
+    border-top: 1px solid var(--border-color);
+    gap: 12px;
+}

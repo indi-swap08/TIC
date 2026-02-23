@@ -1,0 +1,15 @@
+<div class="three-container" #container>
+    <!-- Three.js will inject canvas here -->
+</div>
+<div class="legend" *ngIf="stats">
+    <div class="legend-item" *ngFor="let item of [
+    {label: 'Open', color: '#f44336'},
+    {label: 'In Progress', color: '#2196f3'},
+    {label: 'Resolved', color: '#4caf50'},
+    {label: 'Closed', color: '#9e9e9e'},
+    {label: 'Pending', color: '#ff9800'}
+  ]">
+        <span class="color-dot" [style.background-color]="item.color"></span>
+        <span class="label">{{item.label}}</span>
+    </div>
+</div>

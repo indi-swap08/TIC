@@ -1,0 +1,78 @@
+<div class="app-layout" [class.dark-theme]="isDarkMode">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="./assets/icons/svg/TIC-light.svg" alt="TIC Logo" class="logo">
+      <!-- <span class="brand-name">TIC</span> -->
+    </div>
+
+    <nav class="nav-list">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/ticket/overview" routerLinkActive="active" class="nav-item">
+        <mat-icon>confirmation_number</mat-icon>
+        <span>Tickets</span>
+      </a>
+      <a routerLink="/reports" routerLinkActive="active" class="nav-item">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Reports</span>
+      </a>
+      <a routerLink="/users" routerLinkActive="active" class="nav-item">
+        <mat-icon>group</mat-icon>
+        <span>Users</span>
+      </a>
+      <div class="nav-spacer"></div>
+      <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-container">
+    <header class="top-header">
+      <div class="search-box">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search tickets, customers, users...">
+      </div>
+
+      <div class="header-actions">
+        <button mat-icon-button (click)="toggleTheme()"
+          [matTooltip]="isDarkMode ? 'Switch to Light' : 'Switch to Dark'">
+          <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        </button>
+
+        <button mat-icon-button matBadge="3" matBadgeColor="warn">
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <div class="user-profile" [matMenuTriggerFor]="userMenu">
+          <div class="avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Admin User</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <mat-icon>expand_more</mat-icon>
+        </div>
+
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+    </header>
+
+    <section class="content-body">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>

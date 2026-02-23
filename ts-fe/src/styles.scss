@@ -1,0 +1,133 @@
+@use "@angular/material" as mat;
+@use "./theme/m3-theme" as tic;
+
+@include mat.core();
+
+// Enterprise SaaS Design System Tokens
+:root {
+  --primary-color: #0066FF;
+  --primary-hover: #0052cc;
+  --bg-main: #f8f9fa;
+  --bg-card: #ffffff;
+  --text-main: #1a1d21;
+  --text-muted: #64748b;
+  --border-color: #e2e8f0;
+  --border-radius: 8px;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --sidebar-width: 260px;
+  --header-height: 64px;
+}
+
+.dark-theme {
+  --bg-main: #0f172a;
+  --bg-card: #1e293b;
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: #334155;
+}
+
+html {
+  @include mat.all-component-themes(tic.$light-theme);
+}
+
+.dark-theme {
+  @include mat.all-component-colors(tic.$dark-theme);
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+}
+
+// Enterprise Component Overrides
+.mat-mdc-card {
+  background-color: var(--bg-card) !important;
+  border-radius: var(--border-radius) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: var(--shadow-sm) !important;
+  overflow: hidden;
+}
+
+.mat-mdc-table {
+  background-color: var(--bg-card) !important;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.mat-toolbar {
+  background-color: var(--bg-card) !important;
+  color: var(--text-main) !important;
+  border-bottom: 1px solid var(--border-color);
+  height: var(--header-height);
+}
+
+// Utility Classes
+.priority-badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+
+  &.high {
+    background: #fee2e2;
+    color: #991b1b;
+  }
+
+  &.medium {
+    background: #ffedd5;
+    color: #9a3412;
+  }
+
+  &.low {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  &.urgent {
+    background: #7f1d1d;
+    color: #ffffff;
+  }
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 500;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  &.new::before {
+    background: #0066FF;
+  }
+
+  &.open::before {
+    background: #f59e0b;
+  }
+
+  &.in-progress::before {
+    background: #8b5cf6;
+  }
+
+  &.resolved::before {
+    background: #10b981;
+  }
+
+  &.sla-breached::before {
+    background: #ef4444;
+  }
+}
