@@ -1,49 +1,55 @@
-<div class="tic-container">
-  <div class="chart-row">
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Monthly Sales</mat-card-title>
-        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item>Expand</button>
-          <button mat-menu-item>Remove</button>
-        </mat-menu>
-      </mat-card-header>
-      <mat-card-content>
-        <canvas id="salesChart"></canvas>
-      </mat-card-content>
-    </mat-card>
+<div class="dashboard-wrapper">
+  <div class="page-header">
+    <div class="header-text">
+      <h1 class="page-title">Health Overview</h1>
+      <p class="page-subtitle">Monitoring real-time performance and ticket distribution</p>
+    </div>
+    <div class="header-actions">
+      <button mat-flat-button color="primary" (click)="openCreateTicketModal()">
+        <mat-icon>add</mat-icon>
+        Create Ticket
+      </button>
+    </div>
+  </div>
 
-    <mat-card>
-      <mat-card-header>
-        <mat-card-title>Revenue Distribution</mat-card-title>
-        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item>Expand</button>
-          <button mat-menu-item>Remove</button>
-        </mat-menu>
-      </mat-card-header>
+  <!-- KPI Cards -->
+  <div class="kpi-grid">
+    <mat-card class="kpi-card" *ngFor="let card of [
+      { label: 'Open Tickets', value: stats?.open, color: 'open', icon: 'drafts', trend: '+5%' },
+      { label: 'In Progress', value: stats?.inProgress, color: 'in-progress', icon: 'sync', trend: '-2%' },
+      { label: 'Resolved (Last 24h)', value: stats?.resolved, color: 'resolved', icon: 'check_circle', trend: '+12%' },
+      { label: 'SLA Breached', value: stats?.slaBreached, color: 'breached', icon: 'error_outline', trend: 'High' }
+    ]">
       <mat-card-content>
-        <canvas id="revenueChart"></canvas>
+        <div class="kpi-top">
+          <div class="icon-box" [class]="card.color">
+            <mat-icon>{{card.icon}}</mat-icon>
+          </div>
+          <span class="trend" [class.negative]="card.color === 'breached'">{{card.trend}}</span>
+        </div>
+        <div class="kpi-bottom">
+          <span class="kpi-value">{{card.value || 0}}</span>
+          <span class="kpi-label">{{card.label}}</span>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>
 
-  <div class="chart-row">
-    <mat-card>
+  <div class="main-grid">
+    <!-- 3D Visualization Mini -->
+    <mat-card class="visual-card">
       <mat-card-header>
-        <mat-card-title>User Activity</mat-card-title>
-        <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item>Expand</button>
-          <button mat-menu-item>Remove</button>
-        </mat-menu>
+        <mat-card-title>3D Distribution Map</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <app-three-dashboard [stats]="stats"></app-three-dashboard>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Activity/Chart Section -->
+    <mat-card class="chart-card">
+      <mat-card-header>
+        <mat-card-title>Support Volume Trend</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <canvas id="userChart"></canvas>

@@ -144,8 +144,25 @@ $light-theme: mat.define-theme((
   ),
   typography: (
     use-system-variables: true,
-    brand-family: 'Comic Sans',
-    bold-weight: 900
+    brand-family: 'Inter',
+    bold-weight: 700
+  ),
+  density: (
+    scale: -1
+  )
+));
+
+$dark-theme: mat.define-theme((
+  color: (
+    theme-type: dark,
+    primary: $_primary,
+    tertiary: $_tertiary,
+    use-system-variables: true,
+  ),
+  typography: (
+    use-system-variables: true,
+    brand-family: 'Inter',
+    bold-weight: 700
   ),
   density: (
     scale: -1

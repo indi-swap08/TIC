@@ -1,0 +1,86 @@
+<div class="modal-container">
+    <div class="modal-header">
+        <h2 mat-dialog-title>Create New Ticket</h2>
+        <button mat-icon-button (click)="onCancel()" class="close-btn">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+
+    <mat-dialog-content class="modal-content">
+        <form class="ticket-form">
+            <!-- Title -->
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Ticket Title</mat-label>
+                <input matInput placeholder="e.g., Cannot access VPN" [(ngModel)]="ticket.title" name="title" required>
+                <mat-hint>A brief summary of the issue</mat-hint>
+            </mat-form-field>
+
+            <div class="form-row">
+                <!-- Category -->
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Category</mat-label>
+                    <mat-select [(ngModel)]="ticket.category" name="category" required>
+                        <mat-option *ngFor="let cat of categories" [value]="cat">{{cat}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+                <!-- Priority -->
+                <mat-form-field appearance="outline" class="half-width">
+                    <mat-label>Priority</mat-label>
+                    <mat-select [(ngModel)]="ticket.priority" name="priority" required>
+                        <mat-select-trigger>
+                            <div class="priority-trigger">
+                                <mat-icon [class]="ticket.priority.toLowerCase()">{{priorities[0].icon}}</mat-icon>
+                                <span>{{ticket.priority}}</span>
+                            </div>
+                        </mat-select-trigger>
+                        <mat-option *ngFor="let p of priorities" [value]="p.value">
+                            <div class="priority-option">
+                                <mat-icon [class]="p.value.toLowerCase()">{{p.icon}}</mat-icon>
+                                <span>{{p.label}}</span>
+                            </div>
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!-- Description - Rich Text -->
+            <div class="editor-label">Description</div>
+            <div class="NgxEditor__Wrapper">
+                <ngx-editor-menu [editor]="editor" [toolbar]="toolbar"></ngx-editor-menu>
+                <ngx-editor [editor]="editor" [(ngModel)]="ticket.description" name="description"
+                    placeholder="Provide detailed information about the issue..."></ngx-editor>
+            </div>
+
+            <!-- Attachments -->
+            <div class="attachments-section">
+                <div class="section-header">
+                    <span class="label">Attachments</span>
+                    <button type="button" mat-button color="primary" (click)="fileInput.click()">
+                        <mat-icon>attach_file</mat-icon>
+                        Upload Files
+                    </button>
+                    <input #fileInput type="file" (change)="onFileSelected($event)" style="display: none" multiple>
+                </div>
+
+                <div class="file-list" *ngIf="ticket.attachments.length > 0">
+                    <div class="file-item" *ngFor="let file of ticket.attachments; let i = index">
+                        <mat-icon>description</mat-icon>
+                        <span class="file-name">{{file.name}}</span>
+                        <span class="file-size">({{file.size | number}} bytes)</span>
+                        <button mat-icon-button color="warn" (click)="removeAttachment(i)">
+                            <mat-icon>cancel</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end" class="modal-actions">
+        <button mat-button (click)="onCancel()">Cancel</button>
+        <button mat-flat-button color="primary" (click)="onSubmit()" [disabled]="!ticket.title || !ticket.description">
+            Create Ticket
+        </button>
+    </mat-dialog-actions>
+</div>

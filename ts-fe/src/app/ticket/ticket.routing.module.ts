@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { OverviewComponent } from './overview/overview.component';
-import {ticketRoutes} from "./ticket.route-constants";
+import { TicketDetailComponent } from './ticket-detail/ticket-detail.component';
+import { ticketRoutes } from "./ticket.route-constants";
 
 const routes: Routes = [
   {
@@ -14,10 +15,14 @@ const routes: Routes = [
     component: OverviewComponent,
     pathMatch: 'full',
   },
+  {
+    path: ':id',
+    component: TicketDetailComponent
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class TicketRoutingModule {}
+export class TicketRoutingModule { }

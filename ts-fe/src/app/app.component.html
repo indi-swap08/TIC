@@ -1,70 +1,78 @@
-<mat-drawer-container class="mat-drawer-sidenav" hasBackdrop="false">
-  <mat-drawer #drawer mode="side" opened>
-
-  <span routerLink="/dashboard">
-    <img class="logo" src="./assets/icons/svg/TIC-logo.svg" alt=""/>
-<!--    <span class="logoTitle">TICKETING</span>-->
-  </span>
-    <mat-nav-list>
-      <div class="tic-side-nav">
-        <a class="nav-link" mat-list-item routerLink="/dashboard" routerLinkActive="active" ariaCurrentWhenActive="page">
-          <div class="side-module-link">
-            <mat-icon>dashboard</mat-icon>
-            <span class="menu-link">Dashboard</span>
-          </div>
-        </a>
-        <a class="nav-link" mat-list-item routerLink="ticket/overview">
-          <div class="side-module-link">
-            <mat-icon>library_books</mat-icon>
-            <span class="menu-link">Ticketing</span>
-          </div>
-        </a>
-        <a class="nav-link" mat-list-item routerLink="/drag" routerLinkActive="active" ariaCurrentWhenActive="page">
-          <div class="side-module-link">
-            <mat-icon>dashboard</mat-icon>
-            <span class="menu-link">Drag</span>
-          </div>
-        </a>
-        <a class="nav-link" mat-list-item routerLink="/tree" routerLinkActive="active" ariaCurrentWhenActive="page">
-          <div class="side-module-link">
-            <mat-icon>dashboard</mat-icon>
-            <span class="menu-link">Tree</span>
-          </div>
-        </a>
-        <a class="nav-link" mat-list-item routerLink="/test" routerLinkActive="active" ariaCurrentWhenActive="page">
-          <div class="side-module-link">
-            <mat-icon>dashboard</mat-icon>
-            <span class="menu-link">Testing</span>
-          </div>
-        </a>
-        <a mat-list-item>
-          <div class="side-module-link">
-            <mat-icon>content_paste</mat-icon>
-            <span class="menu-link">Table List</span>
-          </div>
-        </a>
-        <a mat-list-item>
-          <div class="side-module-link">
-            <mat-icon>location_on</mat-icon>
-            <span class="menu-link">Maps</span>
-          </div>
-        </a>
-        <a mat-list-item>
-          <div class="side-module-link">
-            <mat-icon>calendar_today</mat-icon>
-            <span class="menu-link">Calendar</span>
-          </div>
-        </a>
-      </div>
-    </mat-nav-list>
-  </mat-drawer>
-
-  <mat-drawer-content class="content-spacing">
-    <div class="sidebar-toggle-container">
-      <button mat-mini-fab color="primary" (click)="drawer.toggle()">
-        <mat-icon>menu</mat-icon>
-      </button>
+<div class="app-layout" [class.dark-theme]="isDarkMode">
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <img src="./assets/icons/svg/TIC-light.svg" alt="TIC Logo" class="logo">
+      <!-- <span class="brand-name">TIC</span> -->
     </div>
-    <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+
+    <nav class="nav-list">
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+        <mat-icon>dashboard</mat-icon>
+        <span>Dashboard</span>
+      </a>
+      <a routerLink="/ticket/overview" routerLinkActive="active" class="nav-item">
+        <mat-icon>confirmation_number</mat-icon>
+        <span>Tickets</span>
+      </a>
+      <a routerLink="/reports" routerLinkActive="active" class="nav-item">
+        <mat-icon>bar_chart</mat-icon>
+        <span>Reports</span>
+      </a>
+      <a routerLink="/users" routerLinkActive="active" class="nav-item">
+        <mat-icon>group</mat-icon>
+        <span>Users</span>
+      </a>
+      <div class="nav-spacer"></div>
+      <a routerLink="/settings" routerLinkActive="active" class="nav-item">
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Area -->
+  <main class="main-container">
+    <header class="top-header">
+      <div class="search-box">
+        <mat-icon>search</mat-icon>
+        <input type="text" placeholder="Search tickets, customers, users...">
+      </div>
+
+      <div class="header-actions">
+        <button mat-icon-button (click)="toggleTheme()"
+          [matTooltip]="isDarkMode ? 'Switch to Light' : 'Switch to Dark'">
+          <mat-icon>{{ isDarkMode ? 'light_mode' : 'dark_mode' }}</mat-icon>
+        </button>
+
+        <button mat-icon-button matBadge="3" matBadgeColor="warn">
+          <mat-icon>notifications</mat-icon>
+        </button>
+
+        <div class="user-profile" [matMenuTriggerFor]="userMenu">
+          <div class="avatar">AD</div>
+          <div class="user-info">
+            <span class="user-name">Admin User</span>
+            <span class="user-role">Super Admin</span>
+          </div>
+          <mat-icon>expand_more</mat-icon>
+        </div>
+
+        <mat-menu #userMenu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>person</mat-icon>
+            <span>Profile</span>
+          </button>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon>
+            <span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+    </header>
+
+    <section class="content-body">
+      <router-outlet></router-outlet>
+    </section>
+  </main>
+</div>
