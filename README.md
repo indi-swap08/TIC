@@ -12,8 +12,9 @@ TIC is a comprehensive ticketing solution application designed to streamline tic
 - Detailed reporting and analytics
 - Role-based access control
 
-  <img width="2368" height="1195" alt="Screenshot From 2026-02-23 13-06-34" src="https://github.com/user-attachments/assets/cdfb34c4-77b8-49a7-bed3-11af1323f14a" />
-  <img width="855" height="963" alt="Screenshot From 2026-02-23 13-07-03" src="https://github.com/user-attachments/assets/ce42ebfc-df5b-40c4-90f1-a890ecb00f29" />
+  <img height="400" style="margin-right:40px;" alt="Screenshot 1" src="https://github.com/user-attachments/assets/cdfb34c4-77b8-49a7-bed3-11af1323f14a" />
+  
+  <img height="400" alt="Screenshot 2" src="https://github.com/user-attachments/assets/ce42ebfc-df5b-40c4-90f1-a890ecb00f29" />
 
 
 
